@@ -1,0 +1,54 @@
+{
+  "name": "hackafe-insider",
+  "description": "Hackafe Insider Portal",
+  "version": "0.0.1",
+  "private": true,
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/Hackafe/insider/blob/master/LICENSE.txt"
+  },
+  "scripts": {
+    "//starting": "-",
+    "start": "http-server public",
+    "//building": "-",
+    "build": "npm run build:js",
+    "build:js": "browserify app/scripts/main.js -d -t browserify-ngannotate -p [minifyify --map /js/scripts.map.json --output ./public/js/scripts.map.json] > ./public/js/scripts.js",
+    "//checking": "-",
+    "check": "npm run check:js",
+    "check:js": "npm run jscs -- app/scripts && npm run jshint -- app/scripts",
+    "//test": "-",
+    "//hooks": "-",
+    "pretest": "npm run check",
+    "//tools": "-",
+    "jscs": "jscs",
+    "jshint": "jshint",
+    "budo": "budo"
+  },
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-sanitize": "^1.4.8",
+    "angular-ui-bootstrap": "^0.14.3",
+    "browserify": "^12.0.1",
+    "browserify-ngannotate": "^2.0.0",
+    "browserify-shim": "^3.8.11",
+    "bulk-require": "^0.2.1",
+    "bulkify": "^1.1.1",
+    "http-server": "^0.8.5",
+    "minifyify": "^7.1.0",
+    "moment": "^2.10.6",
+    "uglifyify": "^3.0.1"
+  },
+  "devDependencies": {
+    "budo": "latest",
+    "jscs": "latest",
+    "jshint": "latest"
+  },
+  "browserify-shim": {},
+  "browserify": {
+    "transform": [
+      "bulkify",
+      "browserify-shim"
+    ]
+  }
+}
