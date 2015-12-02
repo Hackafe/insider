@@ -16,5 +16,5 @@ require('../main').service('trelloService', /*@ngInject*/function ($http, config
                     return response.data;
                 });
         }
-    }
+    };
 });

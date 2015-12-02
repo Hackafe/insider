@@ -7,5 +7,5 @@ require('../main')
     .filter('fromNow', /*@ngInject*/function () {
         return function (date) {
             return date ? moment(date).fromNow() : date;
-        }
+        };
     });

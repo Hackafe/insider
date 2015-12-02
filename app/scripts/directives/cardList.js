@@ -3,24 +3,28 @@
  */
 
 require('../main')
-    .directive('cardList', /*@ngInject*/function (trelloService) {
+    .directive('cardList', /*@ngInject*/function ($log, trelloService) {
         return {
             limit: 'AE',
             scope: {
                 cards: "="
             },
-            controller: /*@ngInject*/function ($scope, $timeout) {
+            controller: /*@ngInject*/function ($scope) {
                 $scope.cardOrder = function (card) {
                     return new Date(card.due).getTime();
                 };
                 $scope.coverImage = function (card) {
                     card.coverImage = card.coverImage || {};
-                    if (!card.idAttachmentCover) return card.coverImage;
-                    if (card.coverImage.promise) return card.coverImage;
+                    if (!card.idAttachmentCover) {
+                        return card.coverImage;
+                    }
+                    if (card.coverImage.promise) {
+                        return card.coverImage;
+                    }
                     card.coverImage.promise = trelloService.getCardAttachment(card.id, card.idAttachmentCover).then(function (attachment) {
                         card.coverImage.url = attachment.url;
                     }, function (error) {
-                        console.error(error);
+                        $log.error('Failed to retrieve card attachment', error);
                     });
                     return card.coverImage;
                 };
@@ -35,5 +39,5 @@ require('../main')
                 };
             },
             templateUrl: "eventList"
-        }
+        };
     });
