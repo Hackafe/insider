@@ -3,7 +3,13 @@
  */
 
 var angular = require('angular');
+var bulk = require('bulk-require');
 
-var app = angular.module('app', []);
+var app = angular.module('app', [
+
+]);
 
 module.exports = app;
+
+// include all js files
+bulk(__dirname, ['./**/!(main|*.spec).js']);
