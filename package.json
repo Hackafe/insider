@@ -10,10 +10,10 @@
   "scripts": {
     "//starting": "-",
     "start": "http-server public",
-    "dev": "npm run budo -- app/scripts/main.js --serve js/scripts.js --dir public --dir app/views --live",
+    "dev": "npm run budo -- app/scripts/main.js --serve js/scripts.js --dir public --live",
     "//building": "-",
     "build": "npm run build:js",
-    "build:js": "browserify app/scripts/main.js -d -t browserify-ngannotate -p [minifyify --map /js/scripts.map.json --output ./public/js/scripts.map.json] > ./public/js/scripts.js",
+    "build:js": "browserify app/scripts/main.js -d -p [minifyify --map /js/scripts.map.json --output ./public/js/scripts.map.json] > ./public/js/scripts.js",
     "//checking": "-",
     "check": "npm run check:js",
     "check:js": "npm run jscs -- app/scripts && npm run jshint -- app/scripts",
@@ -39,6 +39,7 @@
     "http-server": "^0.8.5",
     "minifyify": "^7.1.0",
     "moment": "^2.10.6",
+    "stringify": "^3.2.0",
     "uglifyify": "^3.0.1"
   },
   "devDependencies": {
@@ -49,8 +50,10 @@
   "browserify-shim": {},
   "browserify": {
     "transform": [
+      "stringify",
       "bulkify",
-      "browserify-shim"
+      "browserify-shim",
+      "browserify-ngannotate"
     ]
   }
 }

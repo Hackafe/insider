@@ -38,6 +38,6 @@ require('../main')
                     return card.fb;
                 };
             },
-            templateUrl: "eventList.html"
+            template: require("../../views/eventList.html")
         };
     });
