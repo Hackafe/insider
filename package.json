@@ -10,7 +10,7 @@
   "scripts": {
     "//starting": "-",
     "start": "http-server public",
-    "dev": "npm run budo -- app/scripts/main.js --serve js/scripts.js -d public --live",
+    "dev": "npm run budo -- app/scripts/main.js --serve js/scripts.js --dir public --dir app/views --live",
     "//building": "-",
     "build": "npm run build:js",
     "build:js": "browserify app/scripts/main.js -d -t browserify-ngannotate -p [minifyify --map /js/scripts.map.json --output ./public/js/scripts.map.json] > ./public/js/scripts.js",

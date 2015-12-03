@@ -75,23 +75,5 @@
     </div>
 </div>
 <script src="/js/scripts.js"></script>
-<script type="text/ng-template" id="eventList">
-    <ul class="list-unstyled">
-        <li ng-repeat="card in cards | orderBy:cardOrder | limitTo: 3"
-            title="{{card.desc}}"
-            class="thumbnail">
-            <img ng-src="{{coverImage(card).url}}">
-
-            <div class="caption">
-                <h3>{{card.name}}</h3>
-                <h5>{{card.due | fromNow}}</h5>
-
-                <p><a ng-if="getFb(card).url" href="{{getFb(card).url}}" target="_blank" class="btn btn-primary"
-                      role="button">FB</a>
-                </p>
-            </div>
-        </li>
-    </ul>
-</script>
 </body>
 </html>
