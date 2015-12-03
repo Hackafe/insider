@@ -28,7 +28,7 @@
     "requireCamelCaseOrUpperCaseIdentifiers": true,
     "requireCapitalizedConstructors": true,
     "requireCommaBeforeLineBreak": true,
-    "requireCurlyBraces": true,
+    "requireCurlyBraces": false,
     "requireDotNotation": true,
     "requireLineFeedAtFileEnd": true,
     "requireParenthesesAroundIIFE": true,
@@ -63,6 +63,5 @@
     "requireSpacesInsideObjectBrackets": "allButNested",
     "validateIndentation": 4,
     "validateLineBreaks": "LF",
-    "validateParameterSeparator": ", ",
-    "validateQuoteMarks": "'"
+    "validateParameterSeparator": ", "
 }

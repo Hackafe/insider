@@ -18,11 +18,11 @@ require('../main')
             });
             $scope.labels = {
                 // IT events
-                events: {name: "Events", cards: labels[config.eventsLabelId].cards},
+                events: { name: "Events", cards: labels[config.eventsLabelId].cards },
                 // IT courses
-                courses: {name: "Courses", cards: labels[config.coursesLabelId].cards},
+                courses: { name: "Courses", cards: labels[config.coursesLabelId].cards },
                 // IT gatherings
-                gatherings: {name: "Gatherings", cards: labels[config.gatheringsLabelId].cards},
+                gatherings: { name: "Gatherings", cards: labels[config.gatheringsLabelId].cards }
             };
         }, function (error) {
             $log.error('Failed to retrieve cards', error);
