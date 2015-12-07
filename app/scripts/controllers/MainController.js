@@ -5,17 +5,17 @@
 function getCards(cardsByLabels, labels) {
     if (!Array.isArray(labels)) {
         labels = [labels];
-    };
+    }
 
     var cardsHash = {};
-    labels.forEach(function(label){
-        (cardsByLabels[label] && cardsByLabels[label].cards || []).forEach(function(card){
+    labels.forEach(function(label) {
+        (cardsByLabels[label] && cardsByLabels[label].cards || []).forEach(function(card) {
             cardsHash[card.id] = card;
         });
     });
 
     var cards = [];
-    Object.keys(cardsHash).forEach(function(cardId){
+    Object.keys(cardsHash).forEach(function(cardId) {
         cards.push(cardsHash[cardId]);
     });
     return cards;
