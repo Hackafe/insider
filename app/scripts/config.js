@@ -4,7 +4,19 @@
 
 require('./main').constant('config', {
     boardId: 'GHda069L',
-    eventsLabelId: '54648a0274d650d567a72353',
-    coursesLabelId: '54648a0274d650d567a72355',
-    gatheringsLabelId: '565af8f0fb396fe706bec112'
+    eventsLabelId: // "единична IT Лекция"
+        '54648a0274d650d567a72353',
+    coursesLabelId: // "Лекция от курс по IT"
+        '54648a0274d650d567a72355',
+    gatheringsLabelId: // "Парти"
+        '565af8f0fb396fe706bec112',
+    othersLabels: [
+        // "Събитие на партньори"
+        '565af54bfb396fe706bebf3d',
+        // "Лекция от курс на Икономическа Библиотека"
+        '54648a0274d650d567a72358',
+        // "Събитие на Икономическа библиотека"
+        '54648a0274d650d567a72357',
+        // "Външно събитие"
+        '54648a0274d650d567a72356']
 });
