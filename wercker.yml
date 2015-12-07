@@ -21,7 +21,7 @@ deploy:
     - script:
         name: Add remote
         code: |
-          git remote add dokku ssh://dokku@$SERVER_HOSTNAME:$SERVER_PORT/~/insider
+          git remote add dokku ssh://dokku@$SERVER_HOSTNAME:$SERVER_PORT/insider
     - script:
         name: Push to dokku
         code: |
