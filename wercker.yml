@@ -16,6 +16,7 @@ deploy:
   steps:
     - add-to-known_hosts:
         hostname: $SERVER_HOSTNAME
+        port: $SERVER_PORT
     - add-ssh-key:
         keyname: DOKKU
     - script:
