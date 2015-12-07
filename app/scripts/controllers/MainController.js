@@ -22,7 +22,8 @@ function getCards(cardsByLabels, labels) {
 }
 
 require('../main')
-    .controller('MainController', /*@ngInject*/function ($log, $scope, config, trelloService) {
+    .controller('MainController', /*@ngInject*/function ($log, $scope, $rootScope, config, trelloService) {
+        $rootScope.$loading = true;
         trelloService.getCards().then(function (cards) {
             var labels = {};
             cards.forEach(function (card) {
@@ -47,5 +48,7 @@ require('../main')
             };
         }, function (error) {
             $log.error('Failed to retrieve cards', error);
+        }).finally(function(){
+            $rootScope.$loading = false;
         });
     });

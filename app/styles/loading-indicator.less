@@ -1,0 +1,183 @@
+@import url("http://fonts.googleapis.com/css?family=Press+Start+2P");
+
+.loading-indicator-container {
+    .container-fluid;
+    background: black;
+    border-top: 5px solid blue;
+    border-bottom: 5px solid blue;
+
+    .loading-indicator {
+        .clearfix;
+        height: 250px;
+        padding-top: 25px;
+
+        .head {
+            background-color: yellow;
+            height: 100px;
+            width: 200px;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+
+            &.top {
+                transform-origin: 100px 100px;
+                border-radius: 100px 100px 0 0;
+                animation-name: loading-indicator-top-animation;
+            }
+            &.bottom {
+                transform-origin: 100px 0;
+                border-radius: 0 0 100px 100px;
+                animation-name: loading-indicator-bottom-animation;
+            }
+        }
+
+        .middle {
+            margin-top: -185px;
+            width: 45px;
+            height: 45px;
+            border-radius: 30%;
+            animation: loading-indicator-middle-animation 1s linear 0s infinite;
+        }
+
+        p {
+            .hidden-xs();
+            @media (max-width: @screen-sm-max) {
+                .text-right;
+            }
+            .text-center;
+
+            color: #FFF;
+            font: 50px 'Press Start 2P', cursive;
+            margin-top: 100px;
+        }
+    }
+}
+
+/* Animation*/
+@keyframes loading-indicator-top-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-45deg);
+    }
+
+}
+
+@keyframes loading-indicator-bottom-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes loading-indicator-middle-animation {
+    0% {
+        box-shadow: 100px 65px 0 0 pink,
+        300px 65px 0 0 pink,
+        500px 65px 0 0 pink,
+        700px 65px 0 0 pink,
+        900px 65px 0 0 pink,
+        1100px 65px 0 0 pink,
+        1300px 65px 0 0 pink,
+        1500px 65px 0 0 pink,
+        1700px 65px 0 0 pink,
+        1900px 65px 0 0 pink,
+        2100px 65px 0 0 pink,
+        2300px 65px 0 0 pink,
+        2500px 65px 0 0 pink,
+        2700px 65px 0 0 pink,
+        2900px 65px 0 0 pink,
+        3100px 65px 0 0 pink,
+        3300px 65px 0 0 pink,
+        3500px 65px 0 0 pink,
+        3700px 65px 0 0 pink,
+        3900px 65px 0 0 pink,
+        4100px 65px 0 0 pink,
+        4300px 65px 0 0 pink,
+        4500px 65px 0 0 pink,
+        4700px 65px 0 0 pink,
+        4900px 65px 0 0 pink,
+        5100px 65px 0 0 pink,
+        5300px 65px 0 0 pink,
+        5500px 65px 0 0 pink,
+        5700px 65px 0 0 pink,
+        5900px 65px 0 0 pink,
+        6100px 65px 0 0 pink,
+        6300px 65px 0 0 pink,
+        6500px 65px 0 0 pink,
+        6700px 65px 0 0 pink,
+        6900px 65px 0 0 pink,
+        7100px 65px 0 0 pink,
+        7300px 65px 0 0 pink,
+        7500px 65px 0 0 pink,
+        7700px 65px 0 0 pink,
+        7900px 65px 0 0 pink,
+        8100px 65px 0 0 pink,
+        8300px 65px 0 0 pink,
+        8500px 65px 0 0 pink,
+        8700px 65px 0 0 pink,
+        8900px 65px 0 0 pink,
+        9100px 65px 0 0 pink,
+        9300px 65px 0 0 pink,
+        9500px 65px 0 0 pink,
+        9700px 65px 0 0 pink,
+        9900px 65px 0 0 pink;
+    }
+
+    100% {
+        box-shadow: 0px 65px 0 0 pink,
+        100px 65px 0 0 pink,
+        300px 65px 0 0 pink,
+        500px 65px 0 0 pink,
+        700px 65px 0 0 pink,
+        900px 65px 0 0 pink,
+        1100px 65px 0 0 pink,
+        1300px 65px 0 0 pink,
+        1500px 65px 0 0 pink,
+        1700px 65px 0 0 pink,
+        1900px 65px 0 0 pink,
+        2100px 65px 0 0 pink,
+        2300px 65px 0 0 pink,
+        2500px 65px 0 0 pink,
+        2700px 65px 0 0 pink,
+        2900px 65px 0 0 pink,
+        3100px 65px 0 0 pink,
+        3300px 65px 0 0 pink,
+        3500px 65px 0 0 pink,
+        3700px 65px 0 0 pink,
+        3900px 65px 0 0 pink,
+        4100px 65px 0 0 pink,
+        4300px 65px 0 0 pink,
+        4500px 65px 0 0 pink,
+        4700px 65px 0 0 pink,
+        4900px 65px 0 0 pink,
+        5100px 65px 0 0 pink,
+        5300px 65px 0 0 pink,
+        5500px 65px 0 0 pink,
+        5700px 65px 0 0 pink,
+        5900px 65px 0 0 pink,
+        6100px 65px 0 0 pink,
+        6300px 65px 0 0 pink,
+        6500px 65px 0 0 pink,
+        6700px 65px 0 0 pink,
+        6900px 65px 0 0 pink,
+        7100px 65px 0 0 pink,
+        7300px 65px 0 0 pink,
+        7500px 65px 0 0 pink,
+        7700px 65px 0 0 pink,
+        7900px 65px 0 0 pink,
+        8100px 65px 0 0 pink,
+        8300px 65px 0 0 pink,
+        8500px 65px 0 0 pink,
+        8700px 65px 0 0 pink,
+        8900px 65px 0 0 pink,
+        9100px 65px 0 0 pink,
+        9300px 65px 0 0 pink,
+        9500px 65px 0 0 pink,
+        9700px 65px 0 0 pink;
+    }
+}
