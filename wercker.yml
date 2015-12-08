@@ -30,6 +30,8 @@ deploy:
         code: |
           echo "# whoami"
           whoami || true
+          echo "# ssh ..."
+          ssh -p $SERVER_PORT -o StrictHostKeyChecking=no dokku@$SERVER_HOSTNAME apps || true
           echo "# cat /root/.ssh/config"
           cat /root/.ssh/config || true
           echo "# cat /etc/ssh/ssh_known_hosts"
@@ -40,8 +42,6 @@ deploy:
           git fetch wercker-dokku || true
           echo "# git branch -a"
           git branch -a || true
-          echo "# ssh ..."
-          ssh -p $SERVER_PORT dokku@$SERVER_HOSTNAME apps || true
     - script:
         name: Push to dokku
         code: |
