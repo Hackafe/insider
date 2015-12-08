@@ -1,4 +1,4 @@
-box: nodesource/trusty
+box: node
 
 build:
   steps:
@@ -17,20 +17,32 @@ deploy:
     - add-to-known_hosts:
         hostname: $SERVER_HOSTNAME
         port: $SERVER_PORT
+        fingerprint: d8:55:ba:80:9f:a2:09:57:60:40:8f:12:e3:75:10:17
     - add-ssh-key:
         keyname: DOKKU
+        host: $SERVER_HOSTNAME
     - script:
         name: Add remote
         code: |
-          git remote add dokku ssh://dokku@$SERVER_HOSTNAME:$SERVER_PORT/insider
+          git remote add wercker-dokku ssh://dokku@$SERVER_HOSTNAME:$SERVER_PORT/insider || true
     - script:
         name: Debug env
         code: |
-          cat /root/.ssh/config
-          cat /etc/ssh/ssh_known_hosts
-          git remote -v
-          ssh -p $SERVER_PORT dokku@$SERVER_HOSTNAME apps
+          echo "# whoami"
+          whoami || true
+          echo "# cat /root/.ssh/config"
+          cat /root/.ssh/config || true
+          echo "# cat /etc/ssh/ssh_known_hosts"
+          cat /etc/ssh/ssh_known_hosts || true
+          echo "# git remote -v"
+          git remote -v || true
+          echo "# git fetch wercker-dokku"
+          git fetch wercker-dokku || true
+          echo "# git branch -a"
+          git branch -a || true
+          echo "# ssh ..."
+          ssh -p $SERVER_PORT dokku@$SERVER_HOSTNAME apps || true
     - script:
         name: Push to dokku
         code: |
-          git push dokku master -f
+          git push wercker-dokku $WERCKER_GIT_COMMIT:master -f
