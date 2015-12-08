@@ -27,7 +27,7 @@ deploy:
         name: Debug env
         code: |
           cat /root/.ssh/config
-          cat /root/.ssh/known_hosts
+          cat /etc/ssh/ssh_known_hosts
           git remote -v
           ssh -p $SERVER_PORT dokku@$SERVER_HOSTNAME apps
     - script:
