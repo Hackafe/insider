@@ -14,12 +14,12 @@ build:
 
 deploy:
   steps:
-    - add-to-known_hosts:
-        hostname: $SERVER_HOSTNAME
-        port: $SERVER_PORT
-        fingerprint: d8:55:ba:80:9f:a2:09:57:60:40:8f:12:e3:75:10:17
     - add-ssh-key:
         keyname: DOKKU
+    - script:
+        name: Force add to known hosts due to custom port
+        code: |
+          ssh -p $SERVER_PORT -o StrictHostKeyChecking=no dokku@$SERVER_HOSTNAME apps
     - script:
         name: Add remote
         code: |
