@@ -1,6 +1,7 @@
 # [Hackafe Insider Portal](http://insider.hackafe.org)
 **Internally deployed**
 
+[![wercker status](https://app.wercker.com/status/4a2d4891222508baa64254adccbb24a3/s "wercker status")](https://app.wercker.com/project/bykey/4a2d4891222508baa64254adccbb24a3)
 [![Build Status](https://travis-ci.org/Hackafe/insider.svg)](https://travis-ci.org/Hackafe/insider)
 [![Dependency Status](https://david-dm.org/Hackafe/insider.svg)](https://david-dm.org/Hackafe/insider#info=dependencies)
 [![devDependency Status](https://david-dm.org/Hackafe/insider/dev-status.svg)](https://david-dm.org/Hackafe/insider#info=devDependencies)
