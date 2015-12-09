@@ -1,0 +1,30 @@
+.ribbon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+
+    &>* {
+        position: relative;
+        top: 25px;
+        right: -60px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #FFF;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 30px;
+        transform: rotate(45deg);
+        display: block;
+        background: #79A70A;
+        background: linear-gradient(#F79E05 0%, #8F5408 100%);
+        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+
+        &:focus, &:active, &:hover, &:visited {
+            color: #fff;
+        }
+    }
+}
