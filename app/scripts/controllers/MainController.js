@@ -48,7 +48,7 @@ require('../main')
             };
         }, function (error) {
             $log.error('Failed to retrieve cards', error);
-        }).finally(function(){
+        }).finally(function() {
             $rootScope.$loading = false;
         });
     });
