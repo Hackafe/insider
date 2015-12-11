@@ -1,6 +1,6 @@
 # Contributing to Hackafe Insider Portal
 
-♥ [Hackafe Insider Porta](http://insider.hackafe.org) and want to get involved?
+♥ [Hackafe Insider Portal](http://insider.hackafe.org) and want to get involved?
 Thanks! There are plenty of ways you can help!
 
 Please take a moment to review this document in order to make the contribution
