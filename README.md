@@ -25,6 +25,21 @@ the [guidelines](CONTRIBUTING.md):
 * [Feature requests](CONTRIBUTING.md#features)
 * [Pull requests](CONTRIBUTING.md#pull-requests)
 
+## Building
+
+The project uses npm scripts to build and run.
+
+Run locally
+```
+npm install
+npm start
+```
+
+Run in dev mode with watchers to rebuild on change
+```
+npm run dev
+```
+
 ## License
 
 The code is available under the [MIT license](LICENSE.txt).
