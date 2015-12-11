@@ -25,20 +25,32 @@ the [guidelines](CONTRIBUTING.md):
 * [Feature requests](CONTRIBUTING.md#features)
 * [Pull requests](CONTRIBUTING.md#pull-requests)
 
-## Building
+### Building
 
 The project uses npm scripts to build and run.
 
-Run locally
+#### Run
+To run locally the project:
 ```
 npm install
 npm start
 ```
+after that you can open [http://localhost:8080](http://localhost:8080) to inspect
 
-Run in dev mode with watchers to rebuild on change
+#### Dev
+To run in dev mode with watchers to rebuild on change
 ```
 npm run dev
 ```
+then open [http://localhost:9966](http://localhost:9966)
+
+#### Test
+Tests are lacking at the moment, but there are jshint and jscs rules that are run
+```
+npm test
+```
+
+**Note:** Always run the tests before commiting
 
 ## License
 
