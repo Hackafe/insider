@@ -6,7 +6,7 @@
 
         <div class="caption">
             <h3>{{card.name}}</h3>
-            <h5>{{card.due | fromNow}}</h5>
+            <h5>{{card.due | date: "EEE, dd MMM, HH:mm"}}</h5>
 
             <p><a ng-if="getFb(card).url" href="{{getFb(card).url}}" target="_blank" class="btn btn-primary"
                   role="button">FB</a>
