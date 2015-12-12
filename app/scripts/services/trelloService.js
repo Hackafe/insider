@@ -5,7 +5,7 @@
 require('../main').service('trelloService', /*@ngInject*/function ($http, config) {
     return {
         getCards: function () {
-            return $http.jsonp('//api.trello.com/1/boards/' + config.boardId + '/cards/open', {
+            return $http.jsonp('http://api.trello.com/1/boards/' + config.boardId + '/cards/open', {
                     params: {
                         key: config.trelloAppKey,
                         callback: 'JSON_CALLBACK'
