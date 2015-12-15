@@ -38,11 +38,11 @@ require('../main')
             });
             $scope.labels = {
                 // IT events
-                events: { name: "Events", cards: labels[config.eventsLabelId].cards },
+                events: { name: "Events", cards: getCards(labels, config.eventsLabelId) },
                 // IT courses
-                courses: { name: "Courses", cards: labels[config.coursesLabelId].cards },
+                courses: { name: "Courses", cards: getCards(labels, config.coursesLabelId) },
                 // IT gatherings
-                gatherings: { name: "Gatherings", cards: labels[config.gatheringsLabelId].cards },
+                gatherings: { name: "Gatherings", cards: getCards(labels, config.gatheringsLabelId) },
                 // Other
                 other: { name: "Other", cards: getCards(labels, config.othersLabels) }
             };
