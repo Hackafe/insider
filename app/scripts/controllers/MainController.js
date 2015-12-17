@@ -1,6 +1,7 @@
 /**
  * Created by groupsky on 02.12.15.
  */
+var moment = require('moment');
 
 function getCards(cardsByLabels, labels) {
     if (!Array.isArray(labels)) {
@@ -27,7 +28,15 @@ require('../main')
         trelloService.getCards().then(function (cards) {
             var labels = {};
             cards.forEach(function (card) {
-                if (new Date(card.due).getTime() < Date.now()) {
+                if (!card.due) {
+                    return;
+                }
+                if (moment(card.due).isBefore(moment().startOf('day'))) {
+                    return;
+                }
+                if (!(card.labels || []).every(function(label){
+                        return config.skipLabels.indexOf(label.id) == -1;
+                    })) {
                     return;
                 }
                 card.labels.forEach(function (label) {
