@@ -35,7 +35,7 @@
         <div class="middle"></div>
     </div>
     <p ng-if="$loading">Loading...</p>
-    <p ng-if="!$loading">Loaded</p>
+    <p ng-cloak ng-if="!$loading">Loaded</p>
 </div>
 
 <div class="ribbon"><a href="https://github.com/Hackafe/insider" target="_blank">Contribute</a></div>
