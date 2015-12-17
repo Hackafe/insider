@@ -34,10 +34,15 @@ require('../main')
                 if (moment(card.due).isBefore(moment().startOf('day'))) {
                     return;
                 }
-                if (!(card.labels || []).every(function(label){
-                        return config.skipLabels.indexOf(label.id) == -1;
+                if (!(card.labels || []).every(function(label) {
+                        return config.skipLabels.indexOf(label.id) === -1;
                     })) {
                     return;
+                }
+                if (moment(card.due).isBefore(moment().endOf('day'))) {
+                    (labels.today = labels.today || []).push(card);
+                } else if (moment(card.due).isBefore(moment().add(1, 'day').endOf('day'))) {
+                    (labels.tomorrow = labels.today || []).push(card);
                 }
                 card.labels.forEach(function (label) {
                     labels[label.id] = labels[label.id] || label;
@@ -53,7 +58,9 @@ require('../main')
                 // IT gatherings
                 gatherings: { name: "Gatherings", cards: getCards(labels, config.gatheringsLabelId) },
                 // Other
-                other: { name: "Other", cards: getCards(labels, config.othersLabels) }
+                other: { name: "Other", cards: getCards(labels, config.othersLabels) },
+                today: { name: "Today", cards: labels.today || [] },
+                tomorrow: { name: "Tomorrow", cards: labels.tomorrow || [] }
             };
         }, function (error) {
             $log.error('Failed to retrieve cards', error);
