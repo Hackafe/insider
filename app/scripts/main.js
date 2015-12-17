@@ -6,7 +6,8 @@ var angular = require('angular');
 var bulk = require('bulk-require');
 
 var app = angular.module('app', [
-
+    require('angular-animate'),
+    require('angular-sanitize')
 ]);
 
 module.exports = app;
