@@ -3,25 +3,6 @@
  */
 var moment = require('moment');
 
-function getCards(cardsByLabels, labels) {
-    if (!Array.isArray(labels)) {
-        labels = [labels];
-    }
-
-    var cardsHash = {};
-    labels.forEach(function(label) {
-        (cardsByLabels[label] && cardsByLabels[label].cards || []).forEach(function(card) {
-            cardsHash[card.id] = card;
-        });
-    });
-
-    var cards = [];
-    Object.keys(cardsHash).forEach(function(cardId) {
-        cards.push(cardsHash[cardId]);
-    });
-    return cards;
-}
-
 require('../main')
     .controller('MainController', /*@ngInject*/function ($log, $scope, $rootScope, config, trelloService) {
         $rootScope.$loading = true;
