@@ -1,0 +1,37 @@
+{
+	"masterPicture": "app/images/favicon.png",
+	"iconsPath": "/",
+	"design": {
+		"ios": {
+			"pictureAspect": "backgroundAndMargin",
+			"backgroundColor": "#000000",
+			"margin": "25%"
+		},
+		"desktopBrowser": {},
+		"windows": {
+			"pictureAspect": "whiteSilhouette",
+			"backgroundColor": "#fcdb05",
+			"onConflict": "override"
+		},
+		"androidChrome": {
+			"pictureAspect": "shadow",
+			"themeColor": "#fcdb05",
+			"manifest": {
+				"name": "Hackafe",
+				"display": "browser",
+				"orientation": "notSet",
+				"onConflict": "override",
+				"declared": true
+			}
+		},
+		"safariPinnedTab": {
+			"pictureAspect": "silhouette",
+			"themeColor": "#fcdb05"
+		}
+	},
+	"settings": {
+		"compression": 1,
+		"scalingAlgorithm": "NearestNeighbor",
+		"errorOnImageTooSmall": false
+	}
+}
