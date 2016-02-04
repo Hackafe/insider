@@ -73,23 +73,33 @@
     <div class="row">
         <div class="col-md-8">
             <div class="row">
-                <div class="col-md-6">
-                    <h2>Events</h2>
-                    <card-list cards="labels.events.cards"></card-list>
+                <div ng-if="labels.today.length" class="col-md-6">
+                    <h2>Днес</h2>
+                    <card-list cards="labels.today"></card-list>
                 </div>
-                <div class="col-md-6">
-                    <h2>Courses</h2>
-                    <card-list cards="labels.courses.cards"></card-list>
+                <div ng-if="labels.tomorrow.length" class="col-md-6">
+                    <h2>Утре</h2>
+                    <card-list cards="labels.tomorrow"></card-list>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Gatherings</h2>
-                    <card-list cards="labels.gatherings.cards"></card-list>
+                <div ng-if="labels.week.length" class="col-md-6">
+                    <h2>Тази седмица</h2>
+                    <card-list cards="labels.week"></card-list>
                 </div>
-                <div class="col-md-6">
-                    <h2>Other events</h2>
-                    <card-list cards="labels.other.cards"></card-list>
+                <div ng-if="labels.nextweek.length" class="col-md-6">
+                    <h2>Следащата седмица</h2>
+                    <card-list cards="labels.nextweek"></card-list>
+                </div>
+                <div ng-if="labels.month.length" class="col-md-6">
+                    <h2>Този месец</h2>
+                    <card-list cards="labels.month"></card-list>
+                </div>
+                <div ng-if="labels.nextmonth.length" class="col-md-6">
+                    <h2>Следващия месец</h2>
+                    <card-list cards="labels.nextmonth"></card-list>
+                </div>
+                <div ng-if="labels.future.length" class="col-md-6">
+                    <h2>Следва</h2>
+                    <card-list cards="labels.future"></card-list>
                 </div>
             </div>
         </div>

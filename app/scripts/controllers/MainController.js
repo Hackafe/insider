@@ -3,25 +3,6 @@
  */
 var moment = require('moment');
 
-function getCards(cardsByLabels, labels) {
-    if (!Array.isArray(labels)) {
-        labels = [labels];
-    }
-
-    var cardsHash = {};
-    labels.forEach(function(label) {
-        (cardsByLabels[label] && cardsByLabels[label].cards || []).forEach(function(card) {
-            cardsHash[card.id] = card;
-        });
-    });
-
-    var cards = [];
-    Object.keys(cardsHash).forEach(function(cardId) {
-        cards.push(cardsHash[cardId]);
-    });
-    return cards;
-}
-
 require('../main')
     .controller('MainController', /*@ngInject*/function ($log, $scope, $rootScope, config, trelloService) {
         $rootScope.$loading = true;
@@ -34,7 +15,10 @@ require('../main')
                 if (moment(card.due).isBefore(moment().startOf('day'))) {
                     return;
                 }
-                if (!(card.labels || []).every(function(label) {
+                if (!card.labels || !card.labels.length) {
+                    return;
+                }
+                if (!card.labels.every(function(label) {
                         return config.skipLabels.indexOf(label.id) === -1;
                     })) {
                     return;
@@ -43,25 +27,19 @@ require('../main')
                     (labels.today = labels.today || []).push(card);
                 } else if (moment(card.due).isBefore(moment().add(1, 'day').endOf('day'))) {
                     (labels.tomorrow = labels.today || []).push(card);
+                } else if (moment(card.due).isBefore(moment().endOf('week'))) {
+                    (labels.week = labels.week || []).push(card);
+                } else if (moment(card.due).isBefore(moment().add(1, 'week').endOf('week'))) {
+                    (labels.nextweek = labels.nextweek || []).push(card);
+                } else if (moment(card.due).isBefore(moment().endOf('month'))) {
+                    (labels.month = labels.month || []).push(card);
+                } else if (moment(card.due).isBefore(moment().add(1, 'month').endOf('month'))) {
+                    (labels.nextmonth = labels.nextmonth || []).push(card);
+                } else {
+                    (labels.future = labels.future || []).push(card);
                 }
-                card.labels.forEach(function (label) {
-                    labels[label.id] = labels[label.id] || label;
-                    labels[label.id].cards = labels[label.id].cards || [];
-                    labels[label.id].cards.push(card);
-                });
             });
-            $scope.labels = {
-                // IT events
-                events: { name: "Events", cards: getCards(labels, config.eventsLabelId) },
-                // IT courses
-                courses: { name: "Courses", cards: getCards(labels, config.coursesLabelId) },
-                // IT gatherings
-                gatherings: { name: "Gatherings", cards: getCards(labels, config.gatheringsLabelId) },
-                // Other
-                other: { name: "Other", cards: getCards(labels, config.othersLabels) },
-                today: { name: "Today", cards: labels.today || [] },
-                tomorrow: { name: "Tomorrow", cards: labels.tomorrow || [] }
-            };
+            $scope.labels = labels;
         }, function (error) {
             $log.error('Failed to retrieve cards', error);
         }).finally(function() {
