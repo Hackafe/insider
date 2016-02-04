@@ -26,7 +26,7 @@ require('../main')
                 if (moment(card.due).isBefore(moment().endOf('day'))) {
                     (labels.today = labels.today || []).push(card);
                 } else if (moment(card.due).isBefore(moment().add(1, 'day').endOf('day'))) {
-                    (labels.tomorrow = labels.today || []).push(card);
+                    (labels.tomorrow = labels.tomorrow || []).push(card);
                 } else if (moment(card.due).isBefore(moment().endOf('week'))) {
                     (labels.week = labels.week || []).push(card);
                 } else if (moment(card.due).isBefore(moment().add(1, 'week').endOf('week'))) {
