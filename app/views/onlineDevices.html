@@ -1,0 +1,10 @@
+<li role="presentation" class="dropdown" uib-dropdown>
+    <a id="devices-dropdown-toggle" class="dropdown-toggle" href role="button" aria-haspopup="true" aria-expanded="false" uib-dropdown-toggle>
+        {{devices.length}} devices <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu dropdown-append-to-body dropdown-menu-right aria-labelledby="devices-dropdown-toggle">
+        <li ng-repeat="device in devices | orderBy:'-since'">
+            <a href>{{device.hostname && device.hostname != '?' ? device.hostname : device.mac}} <span am-time-ago="device.since"></span></a>
+        </li>
+    </ul>
+</li>
