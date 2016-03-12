@@ -1,0 +1,49 @@
+<p ng-if="paymentCtrl.loading" class="text-center">
+    <span class="glyphicon glyphicon-refresh spin slow"></span>
+    Loading payment information
+</p>
+
+<div ng-if="!paymentCtrl.closed && !paymentCtrl.loading && !paymentCtrl.unavailable"
+     class="panel" role="alert"
+     ng-class="{
+        'panel-info': paymentCtrl.nopayment,
+        'panel-success': paymentCtrl.overdue <= 1,
+        'panel-warning': 1 < paymentCtrl.overdue && paymentCtrl.overdue <= 3,
+        'panel-danger': 3 < paymentCtrl.overdue
+        }">
+    <div class="panel-heading">
+        <div class="btn-group pull-right">
+            <button type="button" class="close" aria-label="Close" ng-click="paymentCtrl.closed = true"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <h3 class="panel-title">
+            Здравей <strong>{{paymentCtrl.info.name}}</strong>.
+            <span ng-if="!paymentCtrl.nopayment">Последно плащане на <strong>{{paymentCtrl.info.last_paid_date}}</strong></span>
+            <span ng-if="paymentCtrl.nopayment">Няма информация за последно плащане</span>
+        </h3>
+    </div>
+    <div ng-if="1 < paymentCtrl.overdue" class="panel-body">
+        <p>Не е плащано от <strong>{{paymentCtrl.overdue}}</strong> месеца!</p>
+        <p class="text-danger">Правата ти на член може да бъдат прекъснати ако 3 месеца подред не е плащано.</p>
+        <p>Може да заплатиш по един от следните начини:</p>
+        <ul>
+            <li>С банков превод по сметката на СНЦ "Хакафе" в ПроКредит Банк: <strong>BG36PRCB92301045641219</strong></li>
+            <li>На място в <a href="https://goo.gl/maps/TTLhUsqjEvN2" target="_blank">Големия Лаб</a></li>
+        </ul>
+        <p class="text-muted">Ако вече сте заплатили, моля да ни извините. Ние сме доброволци и винаги имаме нужда от помощ за да протичат нещата по-глатко.</p>
+    </div>
+    <div ng-if="paymentCtrl.nopayment" class="panel-body">
+        <p>За да работи правилно системата е необходимо:</p>
+        <ol>
+            <li>Попълниш формата за <a href="https://docs.google.com/forms/d/1JOQdFwHmL1-pTn69cOZxgknOEJZ7JSePKUNBKPx_IEM/viewform" target="_blank">член на Хакафе</a></li>
+            <li>
+                <p>Заплатиш по един от следните начини:</p>
+                <ul>
+                    <li>С банков превод по сметката на СНЦ "Хакафе" в ПроКредит Банк: <strong>BG36PRCB92301045641219</strong></li>
+                    <li>На място в <a href="https://goo.gl/maps/TTLhUsqjEvN2" target="_blank">Големия Лаб</a></li>
+                </ul>
+            </li>
+            <li>Попълниш MAC адреса на устройството си <a href="http://frm.hackafe.org/my/preferences" target="_blank">във форума</a></li>
+        </ol>
+        <p class="text-muted">В случай че си направил тези стъпки и все още не излиза информация за плащанията, обърни се към <a href="mailto:info@hackafe.org">info@hackafe.org</a> или на място в <a href="https://goo.gl/maps/TTLhUsqjEvN2" target="_blank">Големия Лаб</a></p>
+    </div>
+</div>
