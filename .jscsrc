@@ -25,42 +25,6 @@
     "disallowSpacesInsideParentheses": true,
     "disallowTrailingComma": true,
     "disallowTrailingWhitespace": true,
-    "requireCamelCaseOrUpperCaseIdentifiers": true,
-    "requireCapitalizedConstructors": true,
-    "requireCommaBeforeLineBreak": true,
-    "requireCurlyBraces": false,
-    "requireDotNotation": true,
-    "requireLineFeedAtFileEnd": true,
-    "requireParenthesesAroundIIFE": true,
-    "requireSpaceAfterBinaryOperators": true,
-    "requireSpaceAfterKeywords": [
-        "catch",
-        "do",
-        "else",
-        "for",
-        "if",
-        "return",
-        "switch",
-        "try",
-        "while"
-    ],
-    "requireSpaceAfterLineComment": true,
-    "requireSpaceBeforeBinaryOperators": true,
-    "requireSpaceBeforeBlockStatements": true,
-    "requireSpacesInAnonymousFunctionExpression": {
-        "beforeOpeningCurlyBrace": true
-    },
-    "requireSpacesInConditionalExpression": true,
-    "requireSpacesInFunctionDeclaration": {
-        "beforeOpeningCurlyBrace": true
-    },
-    "requireSpacesInFunctionExpression": {
-        "beforeOpeningCurlyBrace": true
-    },
-    "requireSpacesInNamedFunctionExpression": {
-        "beforeOpeningCurlyBrace": true
-    },
-    "requireSpacesInsideObjectBrackets": "allButNested",
     "validateIndentation": 4,
     "validateLineBreaks": "LF",
     "validateParameterSeparator": ", "
