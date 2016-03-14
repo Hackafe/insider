@@ -19,6 +19,9 @@ require('../main').directive('paymentInfo', /*@ngInject*/function () {
 
                     return scrooogeService.paymentInfo(paymentCtrl.member);
                 })
+                .catch(function () {
+                    paymentCtrl.unavailable = true;
+                })
                 .then(function (paymentInfo) {
                     paymentCtrl.info = paymentInfo;
                     var now = new Date();
@@ -30,9 +33,6 @@ require('../main').directive('paymentInfo', /*@ngInject*/function () {
                     paymentCtrl.info = {
                         name: paymentCtrl.member
                     };
-                })
-                .catch(function () {
-                    paymentCtrl.unavailable = true;
                 })
                 .finally(function () {
                     paymentCtrl.loading = false;
