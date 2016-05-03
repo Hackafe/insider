@@ -18,3 +18,28 @@
     padding: 20px 0;
     background: @gray-lighter;
 }
+
+.glyphicon {
+    &.spin {
+        animation-name: spin;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+
+        &.slow {
+            animation-duration: 1.5s;
+        }
+        &.fast {
+            animation-duration: 0.75s;
+        }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

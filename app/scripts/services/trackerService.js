@@ -14,6 +14,16 @@ require('../main').service('trackerService', /*@ngInject*/function ($http) {
                 .then(function (response) {
                     return response.data;
                 });
+        },
+        currentDevice: function () {
+            return $http.jsonp('http://tracker.hackafe.org/api/currentDevice', {
+                params: {
+                    apiVersion: 1,
+                    callback: 'JSON_CALLBACK'
+                }
+            }).then(function (response) {
+                return response.data;
+            });
         }
     };
 });
